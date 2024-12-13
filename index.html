@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inii speciall</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; width: 90%;">
+  <p id="typed-text" style="font-family : 'Dancing Script', cursive; color: white; font-size: clamp(24px, 5vw, 32px); margin: 0;"></p>
+</div>
+<canvas id="heart"></canvas>
+
+<div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 2; width: 90%; text-align: center;">
+  <audio id="bgMusic">
+    <source src= "music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <button onclick="toggleMusic()" style="padding: 15px 30px; background: rgba(230, 141, 212, 0.954); border: 2px solid white; color: white; border-radius: 30px; cursor: pointer; font-size: 18px; width: 100%; max-width: 300px; margin: 0 auto; display: block;">
+    ▶ Play Music
+  </button>
+</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+<script src="./script.js"></script>
+<script>
+const text = "u is the best person i have ever met. ketika orang lain pergi, kamu dan kamu lagi yang selalu ada buat aku. i'm so lucky to have you in my life, well i'm happiest to found you. you're the winners #1 from risma cantikkk ^";
+let index = 0;
+
+function typeText() {
+  if (index < text.length) {
+    document.getElementById("typed-text").textContent += text.charAt(index);
+    index++;
+    setTimeout(typeText, 100);
+  }
+}
+
+function toggleMusic() {
+  const music = document.getElementById('bgMusic');
+  const btn = document.querySelector('button');
+  if (music.paused) {
+    music.play();
+    btn.innerHTML = '⏸ Pause Music';
+  } else {
+    music.pause();
+    btn.innerHTML = '▶ Play Music';
+  }
+}
+
+window.addEventListener('load', typeText);
+</script>
+
+</body>
+</html>
